@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Central Services</title>
+    <link href="/idp/bootstrap.min.css" rel="stylesheet" />
+    <link href="/idp/bootstrap-responsive.min.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <style type="text/css">body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container > hr {
+        margin: 30px 0;
+      }
+      input {
+        box-shadow:none !important;
+      }</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active">
+            <a href="http://www.utulsa.edu/">Home</a>
+          </li>
+          <li>
+            <a data-toggle="modal" href="#about">About</a>
+          </li>
+          <li>
+            <a href="mailto:webservices-support@utulsa.edu">Contact</a>
+          </li>
+        </ul>
+        <h3 class="muted">TU Federated Login</h3>
+      </div>
+	<hr>
+	<form action="/idp/Authn/UserPassword" class="form-horizontal" method="post">
+        <div class="alert alert-error hide">There is a problem with the fields highlighted in red below.</div><div class="control-group">
+          <label class="control-label" for="username">Username</label>
+          <div class="controls">
+            <input name="j_username" placeholder="Username" type="text" validate="presence" /><span class="help-inline presence hide">Cannot be blank.</span>
+          </div>
+        </div><div class="control-group">
+          <label class="control-label" for="password">Password</label>
+          <div class="controls">
+            <input name="j_password" placeholder="Password" type="password" validate="presence" /><span class="help-inline presence hide">Cannot be blank.</span>
+          </div>
+        </div><div class="control-group">
+          <div class="controls">
+            <button class="btn" type="submit">Login</button>
+          </div>
+        </div></form><hr />
+      <div class="footer">
+        <p>&copy; The University of Tulsa 2013</p>
+      </div>
+      <div class="modal hide fade" id="about" role="dialog" tabindex="-1">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <h3>About</h3>
+        </div>
+        <div class="modal-body">
+          <p>This form allows you to authenticate with your TU username and password to a range of services offered on campus or by federation partners including InCommon and Google.</p>
+        </div>
+      </div>
+
+                
+
+  </body>
+  <script src="/idp/js/jquery.js"></script>
+  <script src="/idp/js/bootstrap.min.js"></script>
+  <script type="text/javascript">var mark_valid = function(e) {
+      cgroup = e.parents('.control-group');
+      cgroup.find('.presence').addClass('hide');
+      cgroup.removeClass('error');
+    };
+    var mark_invalid = function(e) {
+      cgroup = e.parents('.control-group');
+      cgroup.find('.presence').removeClass('hide');
+      cgroup.addClass('error');
+    };
+    var validators = {
+      presence: function(e) {
+        if ( e.attr('type') == 'radio' || e.attr('type') == 'checkbox' ) { 
+          return $('[name="'+e.attr('name')+'"]:checked').size() != 0;
+        } else {
+          return e.val() != "";
+        }
+      }
+    };
+    var garboo = function() {
+      var page_valid = true;
+      $('[validate]').each( function(k,v) {
+        e = $(v)
+        conditions = e.attr('validate');
+        if ( validators[conditions](e) ) {
+          mark_valid(e);
+        } else {
+          mark_invalid(e);
+          page_valid = false;
+        }
+      });
+      if (page_valid) {
+        /*
+        $.post('form',$('form').serialize(), function() {
+          $('form').hide();
+          $('#thanks').show();
+        });
+        */
+      } else {
+        $('.alert-error').show();
+        scroll(0,0);
+        return false;
+      }
+    };
+    $(function() { $('form').submit( garboo ) });</script>
+</html>

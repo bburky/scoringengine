@@ -1,0 +1,46 @@
+{
+	"teams": [
+		{
+			"name": "TU",
+			"services": {
+				"ssh": {
+					"port": 22,
+					"host": "login.utulsa.edu",
+					"username": "asdf",
+					"password": "zxcv"
+				},
+				"http": {
+					"host": "utulsa.edu"
+				}
+			}
+		},
+		{
+			"name": "TU 2",
+			"services": {
+				"ssh": {
+					"port": 22,
+					"host": "linux.ens.utulsa.edu",
+					"username": "asdf",
+					"password": "zxcv"
+				},
+				"http": {
+					"host": "gmail.utulsa.edu"
+				}
+			}
+		},
+		{
+			"name": "Fail",
+			"services": {
+				"ssh": {
+					"port": 22,
+					"host": "asdfasdfasdffsd",
+					"username": "asdf",
+					"password": "zxcv"
+				},
+				"http": {
+					"host": "asdfsadfsdffsad"
+				}
+			}
+		}
+	]
+}

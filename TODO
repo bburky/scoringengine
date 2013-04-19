@@ -1,0 +1,22 @@
+# Web interface
+
+Write a web interface in Flask, Django, or something. Also improve command line interface.
+
+# Querying
+
+Query for most recent records only, organized by team. Query only a given team's records for a given service. Probably need to add timestamps to records.
+
+# Persistence
+
+*  Log records to a DB (sqlite?) or something.
+*  Maybe load the teams/services data from it too?
+
+# Additional services, Enable/disable
+
+Allow services to be disabled or more services to be added while running.
+
+Alternately simply implement persistence and reload the records.
+
+# Scoring
+
+Assign point values to services and calculate scores.
